@@ -49,15 +49,6 @@ CLase 19 de Daniel Saldarriaga (Clase con NodeJs Backend)
 */
 const port = process.env.PORT || 5000;
 
-/*var url = "mongodb+srv://rcuello:abc123$$@group-mintic.ayatj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-
-const client = new MongoClient(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });*/
-
-
-//let conexion ;
 
 
 //Buenas practicas del Profe

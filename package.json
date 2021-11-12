@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rcuello/DataMinderUdeA.git"
+    "url": "git+https://github.com/rcuello/ApiDataMinderUdeA.git"
   },
   "keywords": [
     "node",
@@ -23,9 +23,9 @@
   "license": "MIT",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/rcuello/DataMinderUdeA/issues"
+    "url": "https://github.com/rcuello/ApiDataMinderUdeA/issues"
   },
-  "homepage": "https://github.com/rcuello/DataMinderUdeA#readme",
+  "homepage": "https://github.com/rcuello/ApiDataMinderUdeA#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",

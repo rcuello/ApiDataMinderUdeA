@@ -19,6 +19,13 @@ const findProductoById = async (id,callback) => {
     await baseDatos.collection(COLLECTION_NAME).findOne(idFilter,callback);
   };
 
+  const findProductoByCodigo = async (id,callback) => {
+    const baseDatos = getDB();
+
+    const idFilter   = {id : id };
+    await baseDatos.collection(COLLECTION_NAME).findOne(idFilter,callback);
+  };
+
  const createProducto = async (producto,callback)=>{
 
     const baseDatos=getDB();
@@ -47,4 +54,4 @@ const findProductoById = async (id,callback) => {
  };
 
 
-export { findAllProductos,createProducto,deleteProducto,findProductoById,updateProducto };
+export { findAllProductos,createProducto,deleteProducto,findProductoById,updateProducto,findProductoByCodigo };

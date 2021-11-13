@@ -1,5 +1,5 @@
 import Express from "express";
-import { findAllProductos,createProducto,deleteProducto,findProductoById, updateProducto } from "../../model/producto.model.js";
+import { findAllProductos,createProducto,deleteProducto,findProductoById, updateProducto,findProductoByCodigo } from "../../model/producto.model.js";
 
 const rutasProducto = Express.Router();
 
@@ -46,9 +46,9 @@ rutasProducto.route('/productos/:id').delete((req, res) => {
     //res.send("OK");
   });
   
-rutasProducto.route('/productos/:id').get((req, res) => {
+rutasProducto.route('/productosByCodigo/:id').get((req, res) => {
     
-    findProductoById(req.params.id, genercCallback(res));
+    findProductoByCodigo(req.params.id, genercCallback(res));
     //res.send("OK");
   });
 

@@ -52,6 +52,12 @@ rutasProducto.route('/productosByCodigo/:id').get((req, res) => {
     //res.send("OK");
   });
 
+  rutasProducto.route('/productos/:id').get((req, res) => {
+    
+    findProductoById(req.params.id, genercCallback(res));
+    //res.send("OK");
+  });
+
 rutasProducto.route('/productos/:id').patch((req, res) => {
   const producto = req.body;  
   updateProducto(req.params.id,producto, genercCallback(res));

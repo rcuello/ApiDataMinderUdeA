@@ -1,5 +1,5 @@
 import Express from "express";
-import { findAllVentas,createVenta,deleteVenta,findVentaById, updateVenta } from "../../model/venta.model.js";
+import { findAllVentas,createVenta,deleteVenta,findVentaById, updateVenta,findVentaByCodigo } from "../../model/venta.model.js";
 const rutasVenta = Express();
 
 const genercCallback = (res) => (err, result) => {
@@ -27,6 +27,10 @@ const genercCallback = (res) => (err, result) => {
     createVenta(json,genercCallback(res));
   });
   
+  rutasVenta.route('/ventasBySaleId/:id').get((req, res) => {
+    findVentaByCodigo(req.params.id, genercCallback(res));
+  });
+
   rutasVenta.route('/ventas/:id').get((req, res) => {
     findVentaById(req.params.id, genercCallback(res));
   });

@@ -46,6 +46,14 @@ const updateVenta = async (id,edicion, callback) => {
      .findOneAndUpdate(filtro, operacion, { upsert: true, returnOriginal: true }, callback);
  };
 
+ const findVentaByCodigo = async (codigo,callback) => {
+  const baseDatos = getDB();
+  
+
+  const idFilter   = {saleId : codigo };
+  await baseDatos.collection(COLLECTION_NAME).findOne(idFilter,callback);
+};
 
 
- export { findAllVentas,createVenta,deleteVenta,findVentaById,updateVenta };
+
+ export { findAllVentas,createVenta,deleteVenta,findVentaById,updateVenta,findVentaByCodigo };

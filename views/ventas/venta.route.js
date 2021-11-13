@@ -44,4 +44,9 @@ const genercCallback = (res) => (err, result) => {
     deleteVenta(req.params.id, genercCallback(res));
   });
 
+  rutasVenta.route('/ventas/:id').delete((req, res) => {
+    
+    deleteVenta(req.params.id, genercCallback(res));
+  });
+
 export default rutasVenta;

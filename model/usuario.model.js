@@ -69,7 +69,7 @@ const updateUsuario = async (id,edicion, callback) => {
       // 7.2. si el usuario no esta en la bd, lo crea y devuelve la info
       user.auth0ID = user._id;
       delete user._id;
-      user.rol = 'Vendedor';
+      user.rol = 'inactivo';
       user.estado = 'pendiente';
       await createUsuario(user, (err, respuesta) => callback(err, user));
     }

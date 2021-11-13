@@ -12,6 +12,9 @@ import rutasProducto from "./views/productos/producto.route.js";
 import rutasVenta from "./views/ventas/venta.route.js";
 import { conectarBD } from './services/dbServices.js';
 import { MongoClient } from 'mongodb';
+import autorizacionEstadoUsuario from './middleware/autorizacionEstadoUsuario.js';
+import jwt from 'express-jwt';
+import jwks from 'jwks-rsa';
 
 
 dotenv.config({ path: './.env' });
@@ -21,7 +24,17 @@ const app = Express();
 app.use(Express.json());
 app.use(Cors());
 
-
+var jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: 'https://misiontic-dataminder.us.auth0.com/.well-known/jwks.json',
+  }),
+  audience: 'api-autenticacion-dataminder-mintic',
+  issuer: 'https://misiontic-dataminder.us.auth0.com/',
+  algorithms: ['RS256'],
+});
 /*
 Activar NodeMon
 "scripts": {
@@ -33,7 +46,9 @@ Activar NodeMon
 
 // ROUTES
 // ==============================================
-
+// 4 y 5: enviarle el token a auth0 para que devuelva si es valido o no
+app.use(jwtCheck);
+app.use(autorizacionEstadoUsuario);
 app.use(rutasUsuario);
 app.use(rutasProducto);
 app.use(rutasVenta);
